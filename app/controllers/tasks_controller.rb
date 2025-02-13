@@ -49,7 +49,10 @@ class TasksController < ApplicationController
     else
       respond_to do |format|
         format.turbo_stream do
-          render turbo_stream: turbo_stream.update("task_name_frame_#{@task.id}", partial: "edit", locals: { task: @task })
+          render turbo_stream: [
+            turbo_stream.replace("task_#{@task.id}", partial: "task", locals: { task: @task }),
+            turbo_stream.update("task_name_frame_#{@task.id}", partial: "edit", locals: { task: @task })
+          ]
         end
       end
     end
