@@ -1,0 +1,15 @@
+<div class="bg-white shadow rounded-lg p-2 mx-2 lg:mx-0 flex flex-row mt-2 items-center">
+  <%# Ícone condicional %>
+  <% if task.completo? %>
+    <svg class="w-6 h-6 text-green-600 flex-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+    </svg>
+  <% else %>
+    <svg class="w-6 h-6 text-gray-500 flex-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  <% end %>
+
+  <p class="flex-none w-24 ml-2"><%= task.status.capitalize %></p>
+  <p class="flex-1"><%= task.name %></p>
+</div>

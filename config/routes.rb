@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  root "tasks#index"
+  root to: redirect("/tasks")
+
+  resources :tasks
 end
